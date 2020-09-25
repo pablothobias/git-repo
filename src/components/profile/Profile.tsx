@@ -10,7 +10,7 @@ const Profile: React.FC = () => {
     const [data, setData] = useState({});
     const [username, setUsername] = useState("");
     const [repositories, setRepositories] = useState([]);
-    const response = useSelector<GITHUB_STATE>((state: GITHUB_STATE) => state);
+    const response = useSelector<GITHUB_STATE>((state: GITHUB_STATE) => state.data);
     const dispatch = useDispatch();
 
     const onChangeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -21,6 +21,7 @@ const Profile: React.FC = () => {
         e.preventDefault();
 
         dispatch(requestGithubUser(username));
+        
 
         // if (profileJson) {
         //     setData(profileJson);
