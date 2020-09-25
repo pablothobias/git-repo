@@ -1,15 +1,19 @@
 import React from 'react';
+import { Provider } from 'react-redux';
 
 import Profile from '../profile/Profile';
 import Header from './header/Header';
+import store from "../../store/store";
 
 import './App.css';
 
-const App = () => {
+const App: React.FC = () => {
   return (
     <>
-      <Header />
-      <Profile />
+      <Provider store={store}>
+        <Header />
+        <Profile />
+      </ Provider>
     </>
   );
 }

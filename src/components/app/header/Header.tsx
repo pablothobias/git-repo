@@ -3,7 +3,7 @@ import './Header.css';
 
 import logoGithub from '../../../images/logo-github.png';
 
-const Header = () => {
+const Header: React.FC = () => {
     return (
         <header id="header-content">
             <div id="header-logo">
