@@ -1,7 +1,6 @@
 import { Followers } from "../model/followers";
 import { Repositories } from "../model/repositories";
 import { User } from "../model/user";
-import fetchGithubRepositoryWatcher from "../store/saga/githubSaga";
 
 const apiOrchestrator = async (username: string) => {
     try {
@@ -9,8 +8,7 @@ const apiOrchestrator = async (username: string) => {
         const repositories = await fetchRepositories(rawUser.repos_url);
         const followers = await fetchFollowers(username, 5);
         const user: User = sanitizeUser({ rawUser, repositories, followers });
-        console.log(user);
-        // return { user, repositories };
+        return user;
 
     } catch (error) {
         throw new Error(error);

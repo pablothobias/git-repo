@@ -6,6 +6,7 @@ import Header from './header/Header';
 import store from "../../store/store";
 
 import './App.css';
+import UserInfo from '../user-info/UserInfo';
 
 const App: React.FC = () => {
   return (
@@ -13,6 +14,7 @@ const App: React.FC = () => {
       <Provider store={store}>
         <Header />
         <Profile />
+        <UserInfo />
       </ Provider>
     </>
   );

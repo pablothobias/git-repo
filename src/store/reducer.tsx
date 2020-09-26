@@ -1,20 +1,22 @@
-import { FAILURE_FETCH_REQUEST, ActionTypes, REQUEST_GITHUB_USER, SUCCESS_FETCH_REQUEST } from "../model/actions";
+import { FAILURE_FETCH_REQUEST, ActionTypes, REQUEST_GITHUB_USER, SUCCESS_FETCH_REQUEST, LOADING_FETCH_REQUEST } from "../model/actions";
 import { GITHUB_STATE } from "../model/store-state";
 
 const intialState: GITHUB_STATE = {
-    data: {},
-    loading: false,
+    user: null,
+    loading: false, 
     error: false
 };
 
-const externalApiFecth = (state: GITHUB_STATE = intialState, action: ActionTypes) => {
+const externalApiFecth = (state: GITHUB_STATE = intialState, action: ActionTypes): GITHUB_STATE => {
     switch (action.type) {
         case REQUEST_GITHUB_USER:
-            return { ...state, data: {}, loading: true, }
+            return { ...state, loading: false, error: false };
         case SUCCESS_FETCH_REQUEST:
-            return { ...state, data: action.payload, loading: false, error: false, }
+            return { ...state, user: action.payload, loading: false, error: false };
         case FAILURE_FETCH_REQUEST:
-            return { ...state, data: {}, loading: false, error: true, }
+            return { ...state, loading: false, error: true };
+        case LOADING_FETCH_REQUEST:
+            return { ...state, loading: true, error: false };
         default:
             return state;
     }
