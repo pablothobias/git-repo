@@ -50,9 +50,10 @@ table {
   .followers-content {
       min-width: 400px !important;
       width: 400px;
+      vertical-align: baseline;
   }
   
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 900px) {
     table {
       border: 0;
     }

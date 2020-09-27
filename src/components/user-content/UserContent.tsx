@@ -58,7 +58,7 @@ const UserContent: React.FC<{ user: User }> = ({ user }) => {
             <td className="followers-content">{user.followers.map(follower => {
               return <FollowerContent key={follower.email} follower={follower} />
             })}</td>
-            <td className="followers-content">{user.repositories.map(repo => {
+            <td>{user.repositories.map(repo => {
               return <RepositoryContent key={repo.url} repository={repo} />
             })}</td>
           </tr>
