@@ -1,7 +1,7 @@
 import React from 'react';
 import { User } from '../../model/user';
 import FollowerContent from '../follower-content/FollowerContent';
-import RepositoryContent from '../repositories-content/RepositoryContent';
+import RepositoryContent from '../repository-content/RepositoryContent';
 import defaultAvatar from '../../images/default-avatar.jpg';
 
 import './UserContent.css';
