@@ -1,7 +1,12 @@
 import React from "react";
 import { useSelector } from "react-redux";
-import { Repositories } from "../../model/repositories";
 import { GITHUB_STATE } from "../../model/store-state";
+import UserContent from "../user-content/UserContent";
+import loadingGif from '../../images/loading.webp'
+import errorGif from '../../images/error.gif'
+import searchGif from '../../images/search.webp';
+
+import './UserInfo.css';
 
 const UserInfo: React.FC = () => {
 
@@ -9,63 +14,29 @@ const UserInfo: React.FC = () => {
   const loading = useSelector((state: GITHUB_STATE) => state.loading);
   const error = useSelector((state: GITHUB_STATE) => state.error);
 
-  if(loading) {
-    return <p>Loading...</p>;
+  if (loading) {
+    return <div className="center-logo">
+      <img className="gif" src={loadingGif} alt="loading..." />
+    </div>;
   }
 
-  if(error) {
-    return <p>Error</p>;
+  if (error) {
+    return <div className="center-logo">
+      <img className="gif" src={errorGif} alt="error" />
+      <h2>Oops! An error has occurred! Please try again or contact our support.</h2>
+    </div>;
   }
 
   if (user) {
     return (
-      <table className="ui celled table">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Avatar</th>
-            <th>Location</th>
-            <th>Bio</th>
-            <th>Repositories</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{user && user.name}</td>
-            <td>
-              {user && !user.avatar_url ? (
-                " "
-              ) : (
-                  <img
-                    className="ui small circular image"
-                    src={user ? user.avatar_url : ''}
-                    alt={user ? user.avatar_url : ''}
-                  />
-                )}
-            </td>
-            <td>{user && user.name}</td>
-            <td>{user && user.name}</td>
-            <td>
-              {user && user.repositories.map((repo: Repositories) => (
-                <div className="ui relaxed divided list" key={repo.name}>
-                  <div className="item">
-                    <i className="large github middle aligned icon"></i>
-                    <div className="content">
-                      <a href={repo.url} className="header">
-                        {repo.name}
-                      </a>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </td>
-          </tr>
-        </tbody>
-      </table>
+      <UserContent user={user} />
     );
   }
 
-  return <p>Search User!</p>
+  return <div className="center-logo">
+  <img className="gif" src={searchGif} alt="search" />
+  <h2>Welcome to GitHub searcher. Who do you want to search for today?</h2>
+</div>;
 };
 
 export default UserInfo;

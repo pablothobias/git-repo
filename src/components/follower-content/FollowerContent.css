@@ -1,0 +1,33 @@
+#follower-content {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    width: 100%;
+    margin: 20px 0;
+}
+
+#avatar-follower-content {
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#avatar-follower-content #follower-avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+#follower-info-content {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+#follower-name-content {
+    font-size: 16px;
+    font-weight: bold;
+}

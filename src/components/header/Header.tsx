@@ -1,7 +1,7 @@
 import React from 'react';
 import './Header.css';
 
-import logoGithub from '../../../images/logo-github.png';
+import logoGithub from '../../images/logo-github.png';
 
 const Header: React.FC = () => {
     return (
