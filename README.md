@@ -22,6 +22,10 @@ Enter the project folder through your terminal and run the following command:
   ```sh
 npm install
 ```
+and then:
+  ```sh
+npm start
+```
  The project will start immediately on your default browser.
  
  # Tests
